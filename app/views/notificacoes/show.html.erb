@@ -1,0 +1,27 @@
+<% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold"><%= Notificacao.model_name.human %></h1>
+<% end %>
+<div class="py-5">
+  <p>
+    <strong><%= Notificacao.human_attribute_name :assunto %>:</strong>
+    <%= @notificacao.assunto %>
+  </p>
+  <p>
+    <strong><%= Notificacao.human_attribute_name :descricao %>:</strong>
+    <%= @notificacao.descricao %>
+  </p>
+  <p>
+    <strong><%= Notificacao.human_attribute_name :data_hora %>:</strong>
+    <%= format_datetime(@notificacao.data_hora) %>
+  </p>
+  <p>
+    <strong><%= Notificacao.human_attribute_name :situacao %>:</strong>
+    <%= @notificacao.situacao&.descricao %>
+  </p>
+  <p>
+    <strong><%= Notificacao.human_attribute_name :vigencia %>:</strong>
+    <%= @notificacao.vigencia %>
+  </p>
+</div>
+<%= link_to(t('helpers.links.back'), notificacoes_path, class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark') %>
+<%= link_to t('helpers.links.edit'), edit_notificacao_path(@notificacao), class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark' %>

@@ -1,0 +1,37 @@
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="py-3 px-6"></th>
+        <th scope="col" class="py-3 px-6"><%= ServicoDetalhe.human_attribute_name(:tipo_detalhe_id) %></th>
+        <th scope="col" class="py-3 px-6"><%= ServicoDetalhe.human_attribute_name(:titulo) %></th>
+        <th scope="col" class="py-3 px-6"><%= ServicoDetalhe.human_attribute_name(:descricao) %></th>
+        <th scope="col" class="py-3 px-6"><%= t('helpers.actions') %></th>
+      </tr>
+    </thead>
+
+    <tbody data-controller="sortable" data-drag-url="/servico_detalhes/:id/sort_detalhes">
+    <% @servico_detalhes.order(:posicao).each do |servico_detalhe| %>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" data-target="drag-and-drop.id" data-id="<%= servico_detalhe.id %>">
+        <td class="px-6" style="width: 5%;"><box-icon name='menu' color='#5c5a5a' ></box-icon></td>
+        <td class="py-1 px-6"><%= servico_detalhe.tipo_detalhe&.descricao %></td>
+        <td class="py-1 px-6"><%= servico_detalhe.titulo %></td>
+        <td class="py-1 px-6"><%= servico_detalhe.descricao %></td>
+        <td style="width: 5%;">
+          <%= link_to(servico_detalhe, class: 'inline-flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-r-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white', data: { turbo_method: :delete, turbo_confirm: 'Tem certeza que deseja excluir?', 'tooltip-target' => 'tooltip-destroy', 'tooltip-trigger' => 'hover'}) do %>
+            <%= heroicon "trash" %>
+          <% end %>
+          <div id="tooltip-destroy" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+              <%= t('helpers.links.destroy') %>
+            <div class="tooltip-arrow" data-popper-arrow></div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="flex flex-col items-center">
+    <span class="text-sm text-gray-700 dark:text-gray-400 py-4">
+      <%= page_entries_info @servico_detalhes %>
+    </span>
+    <%= paginate @servico_detalhes %>
+  </div>

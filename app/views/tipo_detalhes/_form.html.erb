@@ -1,0 +1,13 @@
+<div class="bg-white rounded-md dark:bg-darker relative p-6 mb-20">
+  <%= form_for(@tipo_detalhe, html: { class: 'space-y-4' }) do |f| %>
+    <%= render partial: 'shared/errors_messages', locals: { model: @tipo_detalhe } %>
+    <div class="mb-4">
+      <%= f.label :descricao, class: 'control-label required' %>
+      <%= f.text_field :descricao, class: 'control-field validation', placeholder: true %>
+    </div>
+    <div class="actions">
+      <%= link_to t('helpers.links.cancel'), tipo_detalhes_path, class: 'btn-secondary' %>
+      <%= f.submit nil, class: 'btn-primary' %>
+    </div>
+  <% end %>
+</div>

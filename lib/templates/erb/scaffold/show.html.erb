@@ -1,0 +1,14 @@
+<%% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold"><%%= <%= singular_table_name.camelcase %>.model_name.human %></h1>
+<%% end %>
+<div class="py-5">
+  <% attributes.each do |attribute| -%>
+    <p>
+      <strong><%%= <%= singular_table_name.camelcase %>.human_attribute_name :<%= attribute.name %> %>:</strong>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </p>
+  <% end -%>
+</div>
+
+<%%= link_to(t('helpers.links.back'), <%= plural_table_name %>_path, class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark') %>
+<%%= link_to t('helpers.links.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark' %>

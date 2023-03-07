@@ -1,0 +1,42 @@
+<% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold"><%= Informacao.model_name.human %></h1>
+<% end %>
+<div class="py-5">
+  <p>
+    <strong><%= Informacao.human_attribute_name :titulo %>:</strong>
+    <%= @informacao.titulo %>
+  </p>
+  <div class="flex">
+    <strong class="mr-2"><%= Informacao.human_attribute_name :descricao %>:</strong>
+    <%= @informacao.descricao %>
+  </div>
+  <p>
+    <strong><%= Informacao.human_attribute_name :destaque %>:</strong>
+    <%= boolean_label(@informacao.destaque) %>
+  </p>
+  <p>
+    <strong><%= Informacao.human_attribute_name :situacao %>:</strong>
+    <%= @informacao.situacao&.descricao %>
+  </p>
+
+  <% unless @informacao.inativado? %>
+    <div class="py-5">
+      <% if @informacao.autor_id != current_user.id %>
+        <%= link_to 'Aprovar', aprovar_informacao_path(@informacao), class: 'btn-green', data: { turbo_method: :patch } if @informacao.cadastrado? %>
+        <%= link_to 'Desaprovar', desaprovar_informacao_path(@informacao), class: 'btn-yellow', data: { turbo_method: :patch } if @informacao.cadastrado? %>
+      <% end %>
+      
+      <%= link_to 'Inativar', inativar_informacao_path(@informacao), class: 'btn-red', data: { turbo_method: :patch } %>
+    </div>
+  <% end %>
+</div>
+
+<h3 class="text-xl font-bold dark:text-white"><%= InformacaoDetalhe.model_name.human %></h3>
+<hr class="my-3 h-px bg-gray-200 border-0 dark:bg-gray-700">
+
+<%= render partial: 'informacoes/form_detalhe' %>
+
+<div class="actions">
+  <%= link_to(t('helpers.links.back'), informacoes_path, class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark') %>
+  <%= link_to t('helpers.links.edit'), edit_informacao_path(@informacao), class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark' %>
+</div>

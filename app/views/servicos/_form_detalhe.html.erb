@@ -1,0 +1,61 @@
+<div class="bg-white rounded-md dark:bg-darker relative mb-5">
+  <%= form_with(model: @servico_detalhe, html: { class: 'space-y-4' } ) do |f| %>
+    <%= render partial: 'shared/errors_messages', locals: { model: @servico_detalhe } %>
+    <%= f.hidden_field :servico_id %>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="mb-3">
+        <%= f.label :tipo_detalhe_id, class: 'control-label required' %>
+        <%= f.select :tipo_detalhe_id, @tipo_detalhes.collect{|t| [t.descricao,  t.id]}, {prompt: I18n.t('helpers.select.prompt')}, {class: "control-field validation"} %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :titulo, class: 'control-label required' %>
+        <%= f.text_field :titulo, class: 'control-field validation', placeholder: true %>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-1 md:gap-6">
+      <div class="mb-4">
+        <%= f.label :descricao, class: 'control-label' %>
+        <%= f.rich_text_area :descricao, class: 'control-field validation', placeholder: true %>
+      </div>
+    </div>
+    <div class="mb-3 py-5">
+      <%= f.submit 'Adicionar', class: 'btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<div id="list_detalhe">
+  <%= render partial: 'servicos/list_detalhe' %>
+</div>
+
+<h3 class="text-xl font-bold dark:text-white"><%= Foto.model_name.human.pluralize %></h3>
+<hr class="my-3 h-px bg-gray-200 border-0 dark:bg-gray-700">
+
+<div class="bg-white rounded-md dark:bg-darker relative mb-5">
+  <%= form_with(model: @foto, html: { class: 'space-y-4' } ) do |f| %>
+    <%= render partial: 'shared/errors_messages', locals: { model: @foto } %>
+    <%= f.hidden_field :servico_id %>
+    <%= f.hidden_field :token %>
+    <div class="grid md:grid-cols-4 md:gap-6">
+      <div class="mb-3">
+        <%= f.label :nome_arquivo, class: 'control-label required' %>
+        <%= f.file_field :nome_arquivo, class: "file-field validation", accept: 'image/png,image/jpeg', data: {buttonText: "Buscar Arquivo", buttonName: "btn-primary", buttonBefore: "true"}%>
+      </div>
+      <div class="mb-3">
+        <%= f.label :titulo, class: 'control-label required' %>
+        <%= f.text_field :titulo, class: 'control-field validation', placeholder: true %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :principal, class: 'control-label required' %>
+        <%= f.check_box :principal, class: 'validation', placeholder: true %>
+      </div>
+      <div class="mb-3 py-5">
+        <%= f.submit 'Adicionar', id: '2', class: 'btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="list_foto">
+  <%= render partial: 'servicos/list_foto' %>
+</div>

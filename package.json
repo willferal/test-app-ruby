@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "alpine-turbo-drive-adapter": "^2.0.0",
+    "flowbite": "^1.5.1",
+    "jquery": "^3.6.1",
+    "jquery-mask-plugin": "^1.14.16"
+  }
+}

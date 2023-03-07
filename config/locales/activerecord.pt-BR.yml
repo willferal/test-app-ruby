@@ -1,0 +1,118 @@
+
+pt-BR:
+  activerecord:
+    errors:
+      user:
+        not_found: 'Usuário não encontrado.'
+      messages:
+        record_invalid: "A validação falhou: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Não é possível excluir este registro, pois existe %{record} relecionado(a)."
+          has_many: "Não é possível excluir este registro, pois existem %{record} relacionados(as)."
+      models:
+    models:
+      informacao: Informação
+      informacao_detalhe: Detalhes 
+      modulo: Módulo
+      modulo_detalhe: Detalhes
+      notificacao: Notificação
+      situacao: Situação
+      user: Usuário
+      municipio: Município
+      tipo_entidade: Tipo de Entidade
+      origem: Origem
+      atuacao: Atuação
+      entidade: Entidade
+      tipo_servico: Tipo Serviço
+      tipo_detalhe: Tipo Detalhe
+      servico: Serviço
+    attributes:
+      informacao:
+        titulo: Título
+        descricao: Descrição
+        situacao_id: Situação
+        destaque: Destaque
+      informacao_detalhe:
+        titulo: Título
+        descricao: Descrição
+      modulo:
+        titulo: Título
+        descricao: Descrição
+        icone: Ícone
+        url: URL
+        text_aprovado: Texto Aprovado
+      modulo_detalhe:
+        titulo: Título
+        descricao: Descrição
+      notificacao:
+        assunto: Assunto
+        data_hora: Data Hora
+        descricao: Descrição
+        situacao_id: Situação
+        vigencia: Vigência
+        user: Usuário
+        user_id: Usuário
+      situacao:
+        descricao: Descrição
+      user:
+        email: "E-mail"
+        nome: "Nome"
+        cpf: "CPF"
+        password: "Senha"
+      municipio:
+        descricao: Descrição
+        uf: UF
+      tipo_entidade:
+        descricao: Descrição
+      origem:
+        descricao: Descrição
+      atuacao:
+        descricao: Descrição
+      entidade:
+        nome: Nome
+        cpf_cnpj: CPF / CNPJ
+        razao_social: Razão Social
+        endereco: Endereço
+        numero_endereco: Número
+        complemento_endereco: Complemento
+        bairro_endereco: Bairro
+        municipio: Município
+        tipo_entidade_id: Tipo Entidade
+        origem_id: Origem
+        atuacao_ids: Atuação(ões)
+      tipo_servico:
+        descricao: Descrição
+      tipo_detalhe:
+        descricao: Descrição
+      servico:
+        tipo_servico_id: Tipo Serviço
+        tipo_detalhe_id: Tipo Detalhe
+        vigencia_inicial: Vigência Inicial
+        vigencia_final: Vigência Final
+        observacoes: Observações
+        situacao: Situação
+      servico_detalhe:
+        tipo_detalhe_id: Tipo Detalhe
+        titulo: Título
+        descricao: Descrição
+      
+
+  helpers:
+    placeholder:
+      informacao:
+        titulo: Informe o título
+        descricao: Informe a descrição
+      informacao_detalhe:
+        titulo: Informe o título
+        descricao: Informe a descrição
+      modulo:
+        titulo: Informe o título
+        descricao: Informe a descrição
+        icone: Informe o ícone
+        url: Informe a URL
+      modulo_detalhe:
+        titulo: Informe o título
+        descricao: Informe a descrição
+      notificacao:
+        descricao: Informe a descrição
+        vigencia: Informe a vigência

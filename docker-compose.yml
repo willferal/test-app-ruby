@@ -1,0 +1,41 @@
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0' -e ${RAILS_ENV}"
+    volumes:
+      - .:/usr/src/app
+      - bundle:/usr/local/bundle
+    #ports:
+    #  - "3000:3000"
+    env_file:
+      - .env
+    #depends_on:
+    #  - redis
+    network_mode: bridge
+    #entrypoint: docker-entrypoint.sh
+    labels:
+      - "traefik.enable=true"
+      # - "traefik.http.routers.metrodatahom.rule=Host(`beta.metrodata.metrofor.ce.gov.br`, `beta.sig.metrofor.ce.gov.br`)"
+      - "traefik.http.routers.metrodatahom.rule=Host(`metrodata.metrofor.ce.gov.br`, `sig.metrofor.ce.gov.br`)"
+
+  #redis:
+  #  image: 'redis'
+  #  command: redis-server
+  #  ports:
+  #    - '6379:6379'
+  #  volumes:
+  #    - 'redis_data:/data'
+
+  sidekiq:
+    #depends_on:
+    #  - 'redis'
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/usr/src/app
+      - '/usr/src/app/tmp' # don't mount tmp directory
+    env_file:
+      - .env
+volumes:
+  #redis_data:
+  bundle:

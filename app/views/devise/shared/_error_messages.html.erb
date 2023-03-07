@@ -1,0 +1,10 @@
+<% if resource&.errors&.any? %>
+  <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <h2><b><%= pluralize(resource.errors.count, 'erro ocorreu', plural: 'erros ocorreram') %>:</b></h2>
+    <ul role="list" class="marker:text-red-500 list-disc pl-5 text-red-400">
+      <% resource.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

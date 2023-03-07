@@ -1,0 +1,3 @@
+<div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+  <b class="font-medium text-semibold">Bem Vindo(a) <%= current_user.nome %>!</b> Seu último acesso foi em <%= I18n.l current_user.last_sign_in_at, format: :long %>.
+</div>

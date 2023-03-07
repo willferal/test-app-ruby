@@ -1,0 +1,46 @@
+<% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold"><%= Servico.model_name.human %></h1>
+<% end %>
+<div class="py-5">
+  <p>
+    <strong><%= Servico.human_attribute_name :tipo_servico %>:</strong>
+    <%= @servico.tipo_servico&.descricao %>
+  </p>
+  <p>
+    <strong><%= Servico.human_attribute_name :entidade %>:</strong>
+    <%= @servico.entidade&.nome %>
+  </p>
+  <p>
+    <strong><%= Servico.human_attribute_name :vigencia_inicial %>:</strong>
+    <%= format_date(@servico.vigencia_inicial) %>
+  </p>  
+  <p>
+    <strong><%= Servico.human_attribute_name :vigencia_final %>:</strong>
+    <%= format_date(@servico.vigencia_final) %>
+  </p>
+  <p>
+    <strong><%= Servico.human_attribute_name :observacoes %>:</strong>
+    <%= @servico.observacoes %>
+  </p>
+  <p>
+    <strong><%= Servico.human_attribute_name :situacao %>:</strong>
+    <%= @servico.situacao %>
+  </p>
+  <p>
+    <strong><%= Servico.human_attribute_name :texto_aprovado %>:</strong>
+    <%= boolean_label @servico.texto_aprovado %>
+  </p>
+</div>
+<div class="actions">
+  <% if @servico.user_id != current_user.id && @servico.servico_detalhes.present? %>
+    <%= link_to 'Aprovar Texto', aprovar_texto_servico_path(@servico), class: 'btn-primary', data: { turbo_method: :patch } if @servico.texto_aprovado.nil? or !@servico.texto_aprovado? %>
+    <%= link_to 'Desaprovar Texto', desaprovar_texto_servico_path(@servico), class: 'btn-primary', data: { turbo_method: :patch } if @servico.texto_aprovado.nil? or @servico.texto_aprovado? %>
+  <% end %>
+</div>
+<h3 class="text-xl font-bold dark:text-white"><%= ModuloDetalhe.model_name.human %></h3>
+<hr class="my-3 h-px bg-gray-200 border-0 dark:bg-gray-700">
+
+<%= render partial: 'servicos/form_detalhe' %>
+
+<%= link_to(t('helpers.links.back'), servicos_path, class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark') %>
+<%= link_to t('helpers.links.edit'), edit_servico_path(@servico), class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark' %>

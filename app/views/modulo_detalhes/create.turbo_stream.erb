@@ -1,0 +1,4 @@
+<%= turbo_stream.update "list_detalhe" do %>
+  <%= render partial: 'modulos/list_detalhe' %>
+<% end %>
+<%= turbo_stream.update "flash-messages", partial: "shared/flash" %>

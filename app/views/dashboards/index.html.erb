@@ -1,0 +1,19 @@
+<% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold uppercase"><%= Modulo.model_name.human.pluralize %></h1>
+<% end %>
+<!-- State cards -->
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <% @modulos&.each do |modulo| %>
+  <% link = (modulo.ativo? ? modulo.url : '#') %>
+    <%= link_to link, class: (modulo.ativo? ? '' : 'cursor-default') do %>
+      <% class_active = modulo.ativo? ? 'text-gray-500 dark:hover:text-white hover:text-gray-600 hover:bg-primary-100 dark:hover:bg-primary-lighter' : 'text-gray-300 dark:text-gray-600' %>
+      <div class="inline-flex justify-between items-center p-5 w-full bg-white rounded-lg border-2 border-gray-200 dark:border-gray-700 dark:text-gray-400 dark:bg-darker <%= class_active %>">
+        <div class="block">
+          <%= heroicon modulo.icone, variant: :solid %>
+          <div class="w-full text-lg font-semibold"><%= modulo.titulo %></div>
+          <div class="w-full text-sm"><%= modulo.descricao %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

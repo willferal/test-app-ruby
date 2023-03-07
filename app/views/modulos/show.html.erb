@@ -1,0 +1,46 @@
+<% content_for :breadcrumb do %>
+  <h1 class="text-2xl font-semibold"><%= Modulo.model_name.human %></h1>
+<% end %>
+<div class="py-5">
+  <p>
+    <strong><%= Modulo.human_attribute_name :titulo %>:</strong>
+    <%= @modulo.titulo %>
+  </p>
+  <p>
+    <strong><%= Modulo.human_attribute_name :descricao %>:</strong>
+    <%= @modulo.descricao %>
+  </p>
+  <p>
+    <strong><%= Modulo.human_attribute_name :icone %>:</strong>
+    <%= @modulo.icone %>
+  </p>
+  <p>
+    <strong><%= Modulo.human_attribute_name :url %>:</strong>
+    <%= @modulo.url %>
+  </p>
+  <p>
+    <strong><%= Modulo.human_attribute_name :ativo %>:</strong>
+    <%= @modulo.texto_ativo_label %>
+  </p>
+  <p>
+    <strong><%= Modulo.human_attribute_name :text_aprovado %>:</strong>
+    <%= boolean_label @modulo.texto_aprovado %>
+  </p>
+
+  <% if @modulo.autor_id != current_user.id %>
+    <div class="actions">
+      <%= link_to 'Aprovar Texto', aprovar_texto_modulo_path(@modulo), class: 'btn-primary', data: { turbo_method: :patch } if @modulo.texto_aprovado.nil? or !@modulo.texto_aprovado? %>
+      <%= link_to 'Desaprovar Texto', desaprovar_texto_modulo_path(@modulo), class: 'btn-primary', data: { turbo_method: :patch } if @modulo.texto_aprovado.nil? or @modulo.texto_aprovado? %>
+    </div>
+  <% end %>
+</div>
+
+<h3 class="text-xl font-bold dark:text-white"><%= ModuloDetalhe.model_name.human %></h3>
+<hr class="my-3 h-px bg-gray-200 border-0 dark:bg-gray-700">
+
+<%= render partial: 'modulos/form_detalhe' %>
+
+<div class="actions">
+  <%= link_to(t('helpers.links.back'), modulos_path, class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark') %>
+  <%= link_to t('helpers.links.edit'), edit_modulo_path(@modulo), class: 'px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark' %>
+</div>

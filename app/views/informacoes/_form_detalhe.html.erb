@@ -1,0 +1,24 @@
+<% if @informacao.cadastrado? %>
+  <div class="bg-white rounded-md dark:bg-darker relative mb-5">
+    <%= form_with(model: @informacao_detalhe, html: { class: 'space-y-4' } ) do |f| %>
+      <%= render partial: 'shared/errors_messages', locals: { model: @informacao_detalhe } %>
+      <%= f.hidden_field :informacao_id %>
+      <div class="grid md:grid-cols-1 md:gap-2">
+        <div class="mb-4">
+          <%= f.label :titulo, class: 'control-label required' %>
+          <%= f.text_field :titulo, class: 'control-field validation', placeholder: true %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :descricao, class: 'control-label required' %>
+          <%= f.rich_text_area :descricao, class: 'control-field validation', placeholder: true %>
+        </div>
+        <div class="mb-4 py-5">
+          <%= f.submit 'Adicionar', class: 'btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div id="list_detalhe">
+  <%= render partial: 'informacoes/list_detalhe' %>
+</div>

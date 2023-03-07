@@ -1,0 +1,23 @@
+<div class="bg-white rounded-md dark:bg-darker relative mb-5">
+  <%= form_with(model: @modulo_detalhe, html: { class: 'space-y-4' } ) do |f| %>
+    <%= render partial: 'shared/errors_messages', locals: { model: @modulo_detalhe } %>
+    <%= f.hidden_field :modulo_id %>
+    <div class="grid">
+      <div class="mb-4">
+        <%= f.label :titulo, class: 'control-label' %>
+        <%= f.text_field :titulo, class: 'control-field validation', placeholder: true %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :descricao, class: 'control-label' %>
+        <%= f.rich_text_area :descricao, class: 'control-field validation ', placeholder: true %>
+      </div>
+      <div class="mb-4">
+        <%= f.submit 'Adicionar', class: 'btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="list_detalhe">
+  <%= render partial: 'modulos/list_detalhe' %>
+</div>

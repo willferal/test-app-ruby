@@ -1,0 +1,15 @@
+<div class="bg-white rounded-md dark:bg-darker relative p-6 mb-20">
+  <%%= form_for(@<%= singular_table_name %>, html: { class: 'space-y-4' }) do |f| %>
+    <%%= render partial: 'shared/errors_messages', locals: { model: @<%= singular_table_name %> } %>
+    <% attributes.each do |attribute| -%>
+<div class="mb-4">
+      <%%= f.label :<%= attribute.name %>, class: 'control-label' %>
+      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'control-field validation', placeholder: '<%= attribute.name.capitalize %>' %>
+    </div>
+    <% end -%>
+<div class="actions">
+      <%%= link_to t('helpers.links.cancel'), <%= plural_table_name %>_path, class: 'btn-secondary' %>
+      <%%= f.submit nil, class: 'btn-primary' %>
+    </div>
+  <%% end %>
+</div>

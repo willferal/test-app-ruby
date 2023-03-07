@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Metrodata</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div x-data="Setup.setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" @resize.window="watchScreen()" :class="{ 'dark': isDark}">
+      <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+        <!-- Loading screen -->
+        <div
+          x-ref="loading"
+          class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker"
+        >
+          Carregando.....
+        </div>
+        <%= render partial: 'layouts/template/sidebar_menu' %>
+        <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
+          <%= render partial: 'layouts/template/navbar' %>
+          <!-- Main content -->
+          <main>
+            <!-- Content header -->
+            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+              <%= yield :breadcrumb %>
+            </div>
+            <!-- Content -->
+            <div class="bg-white rounded-md dark:bg-darker relative p-6 m-4 mb-20">
+              <div id="flash-messages">
+                <%= render partial: "shared/flash" %>
+              </div>
+              <%= yield %>
+            </div>
+          </main>
+          <%= render partial: 'layouts/template/settings' %>
+          <%= render partial: 'layouts/template/notifications' %>
+          <%= render partial: 'layouts/template/search' %>
+          <%#= render partial: 'layouts/template/footer' %>
+          <%= render partial: 'shared/modal' %>
+          
+        </div>
+      </div>
+
+      <!-- Panels -->
+
+      <!-- Settings Panel -->
+      <!-- Backdrop -->
+      <div
+        x-show="isSettingsPanelOpen"
+        class="fixed inset-0 bg-black bg-opacity-50"
+        @click="isSettingsPanelOpen = false"
+        aria-hidden="true"
+      ></div>
+      <!-- Panel -->
+      <section
+        x-transition:enter="transform transition-transform duration-300"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transform transition-transform duration-300"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        x-show="isSettingsPanelOpen"
+        class="fixed inset-y-0 right-0 w-64 bg-white border-l border-indigo-100 rounded-l-3xl"
+      >
+        <div class="px-4 py-8">
+          <h2 class="text-lg font-semibold">Settings</h2>
+        </div>
+      </section>
+    </div>
+
+
+  
+</div>
+    <script>
+      
+    </script>
+  </body>
+</html>

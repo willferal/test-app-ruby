@@ -1,0 +1,358 @@
+pt-BR:
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      date_time: ! '%d/%m/%Y h:m h'
+      long: ! '%d de %B de %Y'
+      long_week: ! '%A, %d de %B de %Y'
+      short: ! '%d de %B'
+      short2: ! '%d %b'
+      time: ! '%H:%M'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      already_associated: já presente.
+      not_saved: 'Não foi possível salvar'
+      invalid_field: 'Favor verifique o(s) seguinte(s) campo(s): %{campos}'
+      destroy_exception: Não foi possível apagar.
+      accepted: deve ser aceito.
+      blank: "obrigatório"
+      required: obrigatório
+      confirmation: não está de acordo.
+      empty: não pode ficar vazio.
+      equal_to: deve ser igual a %{count}.
+      even: deve ser par.
+      exclusion: não está disponível.
+      greater_than: deve ser maior que %{count}.
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}.
+      inclusion: não está incluído na lista.
+      invalid: campo inválido.
+      invalid_date: 'Data inválida.'
+      future_date: não pode ser futura.
+      attachment_blank: 'Anexo obrigatório'
+      less_than: deve ser menor que %{count}.
+      less_than_or_equal_to: deve ser menor ou igual a %{count}.
+      not_less_than: não pode ser menor que a %{field}
+      not_less_than_or_equal_to: não pode ser menor ou igual a %{field}
+      not_greater_than_or_equal_to: não pode ser maior ou igual a %{field}
+      not_greater_than_days_after_to: não pode ser maior que %{days} dias após a %{field}
+      not_a_number: não é um número.
+      not_an_integer: não é um número inteiro.
+      odd: deve ser ímpar.
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já existente.
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres).
+      form_errors: 'Não foi possível realizar esta ação:'
+      not_change: 'não é permitido alterar.'
+      approve_or_reprove: 'Texto só pode ser aprovado/desaprovado por um usuário diferente de quem fez o cadastro!'
+      inactive_notification: 'Erro ao inativar esta notificação, transição entre situações inválida.'
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  condicao:
+    sim: "Sim"
+    nao: "Não"
+  success:
+    save: "Salvo com sucesso."
+  helpers:
+    actions: "Ações"
+    links:
+      edit: "Editar"
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Tem certeza que deseja apagar?"
+      destroy: "Apagar"
+      new: "Novo"
+      show: "Mostrar"
+      detail: "Detalhe"
+      logout: "Sair"
+      permissions: "Permissões"
+      forgot_password: "Esqueceu a senha?"
+      unlock_account: "Desbloquear conta?"
+      commit: "Sim"
+      not: "Não"
+      clear: "Limpar"
+      search: "Pesquisar"
+      lotacao: 'Lotação'
+      afastamento: 'Afastamento'
+      cargo: 'Cargo'
+      folga_tre: 'Folga TRE'
+      situacao: 'Situação'
+      utilize: 'Utilizar'
+      download: 'Download'
+    page_entries_info:
+      more_pages:
+        #display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>"
+        display_entries: "Registros <b>&nbsp;%{first}&nbsp;-&nbsp;%{last}</b>&nbsp;/&nbsp;<b>%{total}</b>"
+      one_page:
+        display_entries:
+          # one: "Exibindo <b>1</b> %{entry_name}"
+          # other: "Exibindo <b>%{count}</b> %{entry_name}"
+          one: "Registros <b>&nbsp;%{count}</b>"
+          other: "Registros <b>&nbsp;%{count}</b>"
+          zero: "Nenhum registro encontrado"
+    titles:
+      edit: "Editar %{model}"
+      save: "Salvar %{model}"
+      new: "Cadastrar %{model}"
+      delete: "Apagar %{model}"
+      details: 'Detalhe'
+      modal:
+        details: 'Detalhe'
+        version: 'Versão'
+      alert: "Alerta"
+      search_filter: "Filtro de Pesquisa"
+      add: "Adicionar"
+    select:
+      prompt: "Selecione"
+      no_one: "Nenhum registro foi encontrado."
+    submit:
+      create: "Cadastrar"
+      submit: "Salvar"
+      update: "Atualizar"
+  breadcrumb:
+    new: 'Novo'
+    edit: 'Editar'
+    show: 'Detalhar'
+    permissions: "Permissões"
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      next: Próximo &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"
+      records: "Registros:"
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: 'Byte'
+            other: 'Bytes'
+          gb: 'GB'
+          kb: 'KB'
+          mb: 'MB'
+          tb: 'TB'
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%d/%m/%Y, %H:%M:%S'
+      long: ! '%d de %B de %Y, %H:%M'
+      medium: ! '%d/%m/%Y %H:%M'
+      time: ! '%H:%M'
+      short: ! '%d de %B, %H:%M'
+      welcome: ! '%d/%m/%Y às %H:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  system:
+    initials: 'RH'
+    name: 'Sistema de Recursos Humanos'
+    version: 'v1.0.0'
+    indentifique: 'Identifique-se'
+    entries: 'Cadastros'
+    password: 'Senha'
+    company: 'Departamento Estadual de Trânsito - DETRAN-CE'
+    address: ' - Sede: Av. Godofredo Maciel, 2900 - Maraponga - Fortaleza/Ce CEP: 60.710-903'
+    contact: 'suporte aos sistemas:  (85) 3101.5820 ou 3101.5887 | DETRAN: 0800 275 6768 / Perícia: 154 - CNPJ: 07.135.668/0001-95'
+    copyright: '© 2011 - Governo do Estado do Ceará. Todos os direitos reservados.'
+    message:
+      unauthorized: 'Seu perfil não possui acesso a funcionalidade:'
+      forbidden: 'Você não possui permissão para acessar esse sistema.'
+    tab:
+      envolvidos: 'Envolvidos'
+      bases: 'Bases'
+      sectors: 'Setores'
+      lotacao_empresa: 'Empresa Lotação'
+      versions: 'Versões'
+    welcome: 'Bem vindo(a) ao '
+    last_sign_in: 'Seu último acesso foi em'
+  messages:
+    create:
+      notice: 'Registro incluído com sucesso.'
+    update:
+      notice: 'Registro alterado com sucesso.'
+      forbbiden: 'Não é mais permitido alterar.'
+    destroy:
+      notice: 'Registro excluído com sucesso.'
+      confirm: 'Tem certeza que deseja excluir?'
+    approved:
+      notice: "Aprovado com sucesso."
+      alert: "Ocorreu um erro ao aprovar."
+    inactive:
+      notice: "Inativado com sucesso."
+      alert: "Ocorreu um erro ao inativar."
+    rescue: 'Ocorreu um erro ao realizar esta ação.'
+    not_permited: 'Ação não permitida.'
+    audited:
+      create: "Cadastrado"
+      update: "Atualizado"
+      destroy: "Excluído"
+    constante:
+      new: "Novo"
+      create: "Cadastrar"
+      edit: "Editar"
+      update: "Atualizar"
+      destroy: "Excluir"
+      show: "Mostrar"
+    search:
+      empty: 'Nenhum registro encontrado.'
+    routes:
+      notice: 'Rotas atualizadas com sucesso.'
+      error: 'Ocorreu um erro ao atualizar as rotas.'
+  activemodel:
+    models:
+      funcionario: 'Funcionário'
+      funcionario_area_responsavel: 'Funcionario Área Responsavel'
+    errors:
+      <<: *errors
+  activerecord:
+    attributes:
+      funcionario:
+        funcionarios_areas_responsaveis: 'Área Responsável'
+  "true": "Sim"
+  "false": "Não"
