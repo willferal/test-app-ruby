@@ -41,6 +41,7 @@ pipeline{
         stage('Compose container stage'){
             steps {
                 sh 'echo --> INFO: 3 - Build backend'
+                sh 'ls -la'
                 sh 'cp .env.example .env'
                 sh 'docker-compose build'
                 sh 'docker-compose run --rm web bundle install'
