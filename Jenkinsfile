@@ -3,7 +3,7 @@ pipeline{
 
     environment {
         GIT_CLASS= 'GitSCM'
-        GIT_BRANCH_NAME= '*/Master' //Adicione o nome da branch a ser buscada.
+        GIT_BRANCH_NAME= '*/master' //Adicione o nome da branch a ser buscada.
 
     }
 
@@ -15,7 +15,7 @@ pipeline{
                     $class: 'GitSCM',
                     branches: [
                         [
-                            name: '*/Master' //Adicione o nome da branch a ser buscada. Deve ser exatamente igual a da seção environment.
+                            name: '*/master' //Adicione o nome da branch a ser buscada. Deve ser exatamente igual a da seção environment.
                         ]
                     ],
                     doGenerateSubmoduleConfigurations: false,
