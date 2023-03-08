@@ -41,15 +41,15 @@ pipeline{
         stage('Compose container stage'){
             steps {
                 sh 'echo --> INFO: 3 - Build backend'
-                sh 'docker compose down'
+                sh 'docker-compose down'
                 sh 'cp .env.example .env'
-                sh 'docker compose build'
-                sh 'docker compose run --rm web bundle install'
-                sh 'docker compose run --rm web rails db:migrate'
-                sh 'docker compose run --rm web yarn install'
-                sh 'docker compose run --rm web rails tailwindcss:build'
+                sh 'docker-compose build'
+                sh 'docker-compose run --rm web bundle install'
+                sh 'docker-compose run --rm web rails db:migrate'
+                sh 'docker-compose run --rm web yarn install'
+                sh 'docker-compose run --rm web rails tailwindcss:build'
                 //sh 'docker build -t X .' //Substitua o X pelo nome da imagem correspondente no docker-compose.yml
-                sh 'docker compose up -d'
+                sh 'docker-compose up -d'
                 
             }
         }
